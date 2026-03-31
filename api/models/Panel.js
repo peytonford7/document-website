@@ -1,9 +1,12 @@
-import mongoose from "mongoose";
-import { default as User } from "./User.js";
+import { Schema, model } from "mongoose";
 const panelSchema = new mongoose.Schema({
   username: String,
   id: Number,
-  content: String,
+  title: String,
+  contentType: String,
+  createdAt: {
+	type: Date,
+	default: Date.now
+  }
 });
-const Panel = mongoose.model("Panel", panelSchema);
-export default Panel;
+module.exports = model("Panel", panelSchema);

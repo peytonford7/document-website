@@ -1,19 +1,21 @@
+import dotenv from "dotenv";
+import https from "https";
 import express from "express";
 import mongoose from "mongoose";
-import 'dotenv/config';
-
-import router from "./routes/authRoutes.js";
+import fs from "fs";
+import * as Router from "./routes/index.js";
 
 const app = express();
-app.use(express.static("public"));
 
+const sslOptions = {
+	key: fs.readFileSync("./certs/key.pem"),
+	certs: fs.readFileSync("./certs/cert.pem")
+};
+
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/", router);
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something went wrong!");
-});
 
 const mongoURI = process.env.MONGO_URI;
 const connectToMongo = async () => {
@@ -30,6 +32,7 @@ app.set("view engine", "ejs");
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
+https.createServer(sslOptions, app).listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
