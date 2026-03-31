@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { User, Panel } from "../models/index.js"
-
+import { getAll, getById, create, updateById, deleteById } from "../utils/database.js"
 const router = Router();
 
 router.get("/", (req, res) => {
