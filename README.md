@@ -1,2 +1,2 @@
 # document-website
-A website for documentation and articles, using templates, including user submisstion, and printing.
+A website for creating posts for documents, notes, pictures or files, to display and organize them.
