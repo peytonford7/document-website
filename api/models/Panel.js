@@ -5,8 +5,12 @@ const panelSchema = new mongoose.Schema({
   title: String,
   contentType: String,
   createdAt: {
-	type: Date,
-	default: Date.now
-  }
+    type: Date,
+    default: Date.now,
+  },
+  data: {
+    type: Number,
+    required: true,
+  },
 });
 module.exports = model("Panel", panelSchema);

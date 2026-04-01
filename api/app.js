@@ -8,8 +8,8 @@ import * as Router from "./routes/index.js";
 const app = express();
 
 const sslOptions = {
-	key: fs.readFileSync("./certs/key.pem"),
-	certs: fs.readFileSync("./certs/cert.pem")
+  key: fs.readFileSync("./certs/key.pem"),
+  certs: fs.readFileSync("./certs/cert.pem"),
 };
 
 app.use(express.static("public"));
@@ -35,4 +35,3 @@ const port = process.env.PORT || 3000;
 https.createServer(sslOptions, app).listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
