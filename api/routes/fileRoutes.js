@@ -20,4 +20,4 @@ router.post("/upload", upload.single("file"), async (req, res) => {
   res.send("File uploaded!");
 });
 
-export default router;
+export { router };

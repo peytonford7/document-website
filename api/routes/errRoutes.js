@@ -8,4 +8,4 @@ router.get("asyncerr", async (req, res) => {
   throw new Error("Something went wrong asynchronously!");
 });
 
-export default router;
+export { router };
