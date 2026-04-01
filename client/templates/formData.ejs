@@ -1,8 +1,16 @@
 <table class="table table-sm table-striped">
 	<thead>
-		<tr><th>Field</th><th>Value</th></tr>
+		<tr>
+			<th>Key</th>
+			<th>Value</th>
+		</tr>
 	<thead>
 	<tbody>
-		<tr><td>Template Variables</td></tr>
+		<% for (const [key, value] of Object.entries(formData)) { %>
+			<tr>
+				<td><%= key %></td>
+				<td><%= value %></td>
+			</tr>
+		 <% } %>	
 	</tbody>
 </table>
