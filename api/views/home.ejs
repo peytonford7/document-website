@@ -4,6 +4,10 @@
         <title><%= title %></title>
     </head>
     <body>
+	<% if username { %>
 	<h1><%= body %></h1>
+	<% } else { %>
+	<h1><a href="/login">Click here to login</a></h1>
+	<% } %>
     </body>
 </html>
