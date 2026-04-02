@@ -4,8 +4,8 @@ const router = Router();
 router.get("/err", (req, res) => {
   throw new Error("Something went wrong!");
 });
-router.get("asyncerr", async (req, res) => {
+router.get("/asyncerr", async (req, res) => {
   throw new Error("Something went wrong asynchronously!");
 });
 
-export { router };
+export default router;

@@ -3,18 +3,21 @@ import https from "https";
 import express from "express";
 import mongoose from "mongoose";
 import fs from "fs";
-import * as Router from "./routes/index.js";
+import router from "./routes/index.js";
+
+dotenv.config();
 
 const app = express();
 
 const sslOptions = {
   key: fs.readFileSync("./certs/key.pem"),
-  certs: fs.readFileSync("./certs/cert.pem"),
+  cert: fs.readFileSync("./certs/cert.pem"),
 };
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.set("view engine", "ejs");
 app.use("/", router);
 
 const mongoURI = process.env.MONGO_URI;
@@ -27,8 +30,6 @@ const connectToMongo = async () => {
   }
 };
 connectToMongo();
-
-app.set("view engine", "ejs");
 
 const port = process.env.PORT || 3000;
 

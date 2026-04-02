@@ -1,4 +1,4 @@
-import { Schema, models } from "mongoose";
+import { Schema, model } from "mongoose";
 const boardSchema = new mongoose.Schema({
   username: String,
   id: Number,
@@ -9,7 +9,7 @@ const boardSchema = new mongoose.Schema({
     default: Date.now,
   },
   data: {
-    type: Number,
+    type: String,
     required: true,
   },
 });

@@ -10,4 +10,4 @@ router.post("/form", (req, res) => {
   res.send("Post Form");
 });
 
-export { router };
+export default router;

@@ -1,16 +1,14 @@
-import { model } from "mongoose";
-
 const getAll = async (Model) => {
   return await Model.find();
 };
 
 const getById = async (Model, id) => {
-  return await Model.findOne(id);
+  return await Model.findById(id);
 };
 
 const create = async (Model, data) => {
-  const document = new Model(data);
-  return await document.save();
+  const file = new Model(data);
+  return await file.save();
 };
 
 const updateById = async (Model, id, data) => {

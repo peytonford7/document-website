@@ -9,7 +9,7 @@ const panelSchema = new mongoose.Schema({
     default: Date.now,
   },
   data: {
-    type: Number,
+    type: String,
     required: true,
   },
 });

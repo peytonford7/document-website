@@ -1,9 +1,10 @@
 import { Router } from "express";
 import multer from "multer";
-import fs from "fs";
-import { File } from "../models/File.js";
+import { File } from "../models/index.js";
 import * as db from "../utils/database.js";
 const router = Router();
+
+const upload = multer({ dest: "uploads/" });
 
 router.get("/upload", (req, res) => {
   res.render("upload", { title: "Upload", body: "Upload File:" });
@@ -20,4 +21,4 @@ router.post("/upload", upload.single("file"), async (req, res) => {
   res.send("File uploaded!");
 });
 
-export { router };
+export default router;
