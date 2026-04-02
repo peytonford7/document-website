@@ -1,11 +1,26 @@
 import { Schema, model } from "mongoose";
 const fileSchema = new Schema({
-  username: String,
-  fileName: String,
-  contentType: String,
+  username: {
+	type: String,
+	required: true
+  },
+  id: {
+	type: Number,
+	required: true,
+	unique: true
+  },
+  fileName: {
+	type: String,
+	required: true
+  },
+  contentType: {
+	type: String,
+	required: true
+  },
   uploadDate: {
     type: Date,
     default: Date.now,
-  },
+  }
 });
-module.exports = model("File", fileSchema);
+const File = model("File", fileSchema);
+export default File;

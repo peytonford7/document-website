@@ -19,4 +19,4 @@ const deleteById = async (Model, id) => {
   return await Model.findByIdAndDelete(id);
 };
 
-module.exports = { getAll, getById, create, updateById, deleteById };
+export { getAll, getById, create, updateById, deleteById };

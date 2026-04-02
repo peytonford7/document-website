@@ -1,6 +1,6 @@
 import { Router } from "express";
 import multer from "multer";
-import { File } from "../models/index.js";
+import * as models from "../models/index.js";
 import * as db from "../utils/database.js";
 const router = Router();
 
@@ -14,9 +14,10 @@ router.post("/upload", upload.single("file"), async (req, res) => {
     return res.status(500).send("Error uploading file!");
   }
   await db.create(File, {
-    username: "anonymous",
+    username: req.user.username,
     fileName: req.file.originalname,
     contentType: req.file.mimetype,
+    uploadDate: Date.now
   });
   res.send("File uploaded!");
 });

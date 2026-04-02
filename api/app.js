@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 import fs from "fs";
 import router from "./routes/index.js";
 
-dotenv.config();
+dotenv.config({ path: "./.env" });
 
 const app = express();
 

@@ -1,16 +1,27 @@
 import { Schema, model } from "mongoose";
-const boardSchema = new mongoose.Schema({
-  username: String,
-  id: Number,
-  title: String,
-  contentType: String,
+const boardSchema = new Schema({
+  username: {
+	type: String,
+	required: true
+  },
+  id: {
+	type: Number,
+	required: true,
+	unique: true
+  },
+  title: {
+	type: String,
+	required: true
+  },
+  contentType: {
+	type: String,
+	required: true
+  },
   createdAt: {
     type: Date,
     default: Date.now,
   },
-  data: {
-    type: String,
-    required: true,
-  },
+  set: String
 });
-module.exports = model("Board", boardSchema);
+const Board = model("Board", boardSchema);
+export default Board;
