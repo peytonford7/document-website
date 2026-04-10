@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose';
+import { Panel } from './index.js';
 const boardSchema = new Schema({
     username: {
         type: String,
@@ -21,7 +22,10 @@ const boardSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    set: String,
+    panelList: [{
+	type: Schema.Types.ObjectId,
+	ref: Panel,
+	}]
 });
 const Board = model('Board', boardSchema);
 export default Board;

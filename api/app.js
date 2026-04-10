@@ -17,11 +17,10 @@ const sslOptions = {
 app.use(express.static('../client/static'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 app.set('view engine', 'ejs');
 app.use('/', router);
 
-const mongoURI = process.env.MONGO_URI;
+const mongoURI = process.env.MONGODB_URI;
 const connectToMongo = async () => {
     try {
         await mongoose.connect(mongoURI);

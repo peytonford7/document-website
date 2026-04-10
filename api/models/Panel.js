@@ -1,4 +1,9 @@
 import { Schema, model } from 'mongoose';
+<<<<<<< Updated upstream
+import File from './File.js';
+=======
+import { File } from './index.js';
+>>>>>>> Stashed changes
 const panelSchema = new Schema({
     username: {
         type: String,
@@ -21,7 +26,10 @@ const panelSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    data: String,
+    fileList: [{
+        type: Schema.Types.ObjectId,
+        ref: 'File',
+    }],
 });
 const Panel = model('Panel', panelSchema);
 export default Panel;
