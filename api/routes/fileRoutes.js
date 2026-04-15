@@ -1,13 +1,13 @@
 import { Router } from 'express';
 import multer from 'multer';
-import * as models from '../models/index.js';
+import { File } from '../models/index.js';
 import * as db from '../utils/database.js';
 const router = Router();
 
 const upload = multer({ dest: 'uploads/' });
 
 router.get('/upload', (req, res) => {
-    res.render('upload', { title: 'Upload', body: 'Upload File:' });
+    res.render('upload', { title: 'Upload' });
 });
 router.post('/upload', upload.single('file'), async (req, res) => {
     if (!req.file) {
@@ -16,10 +16,9 @@ router.post('/upload', upload.single('file'), async (req, res) => {
     await db.create(File, {
         username: req.user.username,
         fileName: req.file.originalname,
-        contentType: req.file.mimetype,
-        uploadDate: Date.now,
+        uploadDate: Date.now(),
     });
-    res.send('File uploaded!');
+    return res.send('File uploaded!');
 });
 
 export default router;

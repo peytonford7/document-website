@@ -5,7 +5,6 @@ import userRoutes from './userRoutes.js';
 import fileRoutes from './fileRoutes.js';
 import panelRoutes from './panelRoutes.js';
 import boardRoutes from './boardRoutes.js';
-import formRoutes from './formRoutes.js';
 import errRoutes from './errRoutes.js';
 
 const router = Router();
@@ -16,7 +15,6 @@ router.use('/', userRoutes);
 router.use('/', fileRoutes);
 router.use('/', panelRoutes);
 router.use('/', boardRoutes);
-router.use('/', formRoutes);
 router.use('/', errRoutes);
 
 export default router;

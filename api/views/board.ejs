@@ -1,9 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-  </head>
-  <body>
-	<h1><%= body %></h1>
-  </body>
-</html>
+<%- include('main', { title }) %>
+
+<%- include('header', { title, user }) %>
+<h1><%= title %></h1>
+<p id="statusText">Loading board data...</p>
+
+<div>
+  <button type="button" id="rescanButton">Rescan</button>
+  <button type="button" id="printButton">Print</button>
+</div>
+
+<h2>Panels</h2>
+<label for="panelList">Select panel</label>
+<select id="panelList"></select>
+
+<h2>Board Info</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+      <th>Created Date</th>
+    </tr>
+  </thead>
+  <tbody id="boardTableBody"></tbody>
+</table>
+
+<script src="/scripts/fetchData.js"></script>
+<script src="/scripts/displayBoard.js"></script>
+<%- include('footer') %>

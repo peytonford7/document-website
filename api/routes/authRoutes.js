@@ -1,15 +1,15 @@
 import { Router } from 'express';
-import * as models from '../models/index.js';
+import { User } from '../models/index.js';
 import * as db from '../utils/database.js';
 import bcrypt from 'bcrypt';
 const router = Router();
 
 router.get('/admin', (req, res) => {
-    res.render('admin', { title: 'Admin', body: 'Admin Panel' });
+    res.render('admin', { title: 'Admin' });
 });
 
 router.get('/login', (req, res) => {
-    res.render('login', { title: 'Login', body: 'Please Login:' });
+    res.render('login', { title: 'Login' });
 });
 router.post('/login', async (req, res) => {
     if (req.body.username.length > 0 && req.body.password.length > 0) {
@@ -30,7 +30,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/register', (req, res) => {
-    res.render('register', { title: 'Register', body: 'Register:' });
+    res.render('register', { title: 'Register' });
 });
 router.post('/register', async (req, res) => {
     if (req.body.username.length > 0 && req.body.password.length > 0) {
@@ -56,6 +56,10 @@ router.post('/register', async (req, res) => {
     } else {
         return res.send('* Fields Required. Please Try Again.');
     }
+});
+
+router.get('/logout', (req, res) => {
+    return res.send('Logged out successfully!');
 });
 
 export default router;

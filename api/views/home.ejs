@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title><%= title %></title>
-    </head>
-    <body>
-	<% if username { %>
-	<h1><%= body %></h1>
-	<% } else { %>
-	<h1><a href="/login">Click here to login</a></h1>
-	<% } %>
-    </body>
-</html>
+<%- include('main', { title }) %>
+
+<%- include('header', { title, user }) %>
+<h1>Welcome To The Document Website!</h1>
+<% if(user) { %>
+    <p>Welcome back, <%= user.username %>!</p>
+    <p><a href="/user/<%= user.username %>/board/list">View Your Boards</a></p>
+<% } else { %>
+    <p>Please <a href="/login">log in</a></p>
+<% } %>
+<%- include('footer') %>

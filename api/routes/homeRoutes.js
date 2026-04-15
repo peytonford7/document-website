@@ -2,18 +2,15 @@ import { Router } from 'express';
 const router = Router();
 
 router.get('/', (req, res) => {
-    res.render('home', { title: 'My App', body: 'Home' });
+    res.render('home', { title: 'My App', user: { username: "peytonford22", password: "peytonford22"} });
 });
 
 router.get('/about', (req, res) => {
-    res.render('about', { title: 'About', body: 'This is a document database.' });
+    res.render('about', { title: 'About' });
 });
 
 router.get('/contact', (req, res) => {
-    res.render('contact', {
-        title: 'Contact',
-        body: 'Contact me at peytonford7@gmail.com',
-    });
+    res.render('contact', { title: 'Contact' });
 });
 
 export default router;

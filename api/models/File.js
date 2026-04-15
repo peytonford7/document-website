@@ -13,10 +13,6 @@ const fileSchema = new Schema({
         type: String,
         required: true,
     },
-    contentType: {
-        type: String,
-        required: true,
-    },
     uploadDate: {
         type: Date,
         default: Date.now,

@@ -14,7 +14,7 @@ const sslOptions = {
     cert: fs.readFileSync('./certs/cert.pem'),
 };
 
-app.use(express.static('../client/static'));
+app.use(express.static('../client'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');

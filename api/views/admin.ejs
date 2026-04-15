@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title><%= title %></title>
-    </head>
-    <body>
-        <h1><%= body %></h1>
-    </body>
-</html>
+<%- include('main', { title }) %>
+
+<%- include('header', { title, user }) %>
+<h1>Admin</h1>
+<p>This is the admin panel.</p>
+<%- include('footer') %>
