@@ -4,6 +4,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import fs from 'fs';
 import router from './routes/index.js';
+import cookieParser from 'cookie-parser';
 
 dotenv.config({ path: './.env' });
 
@@ -17,6 +18,7 @@ const sslOptions = {
 app.use(express.static('../client'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.set('view engine', 'ejs');
 app.use('/', router);
 
@@ -36,3 +38,4 @@ const port = process.env.PORT || 3000;
 https.createServer(sslOptions, app).listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+

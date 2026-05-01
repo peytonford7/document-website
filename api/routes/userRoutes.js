@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import * as models from '../models/index.js';
+import { User } from '../models/index.js';
 import * as db from '../utils/database.js';
 const router = Router();
 
-router.get('/users/:user', async (req, res) => {
-    const username = req.params.user;
+router.get('/user/:user', async (req, res) => {
+    const username = req.params.username;
     const user = await User.findOne({ username });
     if (user) {
         res.render('user', {

@@ -7,7 +7,6 @@ const fileSchema = new Schema({
     id: {
         type: Number,
         required: true,
-        unique: true,
     },
     fileName: {
         type: String,

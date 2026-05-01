@@ -3,10 +3,14 @@
         <div class="nav-logo">
         </div>
         <ul class="nav-links">
-            <li class="nav-title"><a href="/"><%= title %></a></li>
-            <li><a href="/users/<%= user.id %>">Profile</a></li>
-            <li><a href="/user/<%= user.id %>/board/list">Boards</a></li>
-            <li><a href="/user/<%= user.id %>/panel/list">Panels</a></li>
-            <li><a href="/logout">Logout</a></li>
+            <% if (user) { %>
+                <li><a href="/user/<%= user.username %>">Profile</a></li>
+                <li><a href="/user/<%= user.username %>/board/list">Boards</a></li>
+                <li><a href="/user/<%= user.username %>/panel/list">Panels</a></li>
+                <li><a href="/logout">Logout</a></li>
+            <% } else { %>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            <% } %>
         </ul>
     </navbar>

@@ -6,7 +6,7 @@ import fileRoutes from './fileRoutes.js';
 import panelRoutes from './panelRoutes.js';
 import boardRoutes from './boardRoutes.js';
 import errRoutes from './errRoutes.js';
-import authMiddleware from '../middleware/authMiddleware';
+import authMiddleware from '../middleware/authMiddleware.js';
 
 const router = Router();
 
